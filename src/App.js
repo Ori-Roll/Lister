@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import TaskList from "./components/TaskList.js";
+import TaskGroups from "./components/TaskGroups.js";
+
+/* const stuffFromAPI = { name: "Johnny cash", name: "Luke kage", name: "Sly Stallone" };
+
+const splitStr = (str) => str.split(` `);
+
+const findMachingWordInArr = (arr) => arr.find((x) => x === "is");
+
+const pipe = (...fns) => (arg) => fns.reduce((a, b) => b(a), arg);
+
+const findWordInString = pipe(splitStr, findMachingWordInArr);
+console.log("findWordInString is " + findWordInString);
+
+const splitThis = findWordInString("This is one");
+
+console.log("splitThis", splitThis); 
+
+function findFirstNameInObj(name, obj) {
+	const namesArr = Object.values(obj);
+	namesArr.find((name) => {});
+}
+*/
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<header className='App-header'></header>
+			<div className='functional'>
+				<TaskList />
+				<TaskGroups />
+			</div>
+		</div>
+	);
 }
 
 export default App;
