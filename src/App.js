@@ -28,7 +28,7 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'></header>
-			<div className='functional'>
+			<div className='interface'>
 				<TaskList />
 				<TaskGroups />
 			</div>

@@ -4,27 +4,40 @@
 	box-sizing: border-box;
 }
 body {
-	background-color: rgb(40, 41, 46);
+	background-color: rgb(29, 30, 31);
+	height: 100%;
 }
 
-.functional {
+.interface {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 	gap: 0.2em;
-	width: 50%;
-	margin: 0.5em;
+	width: 100%;
+	padding: 0.5em 0;
+	height: 100vh;
 }
 
-.functional * {
-	background-color: rgb(95, 97, 107);
-	padding: 3px 6px;
+.task-groups,
+.task-list {
+	background-color: rgb(54, 55, 58);
+	padding: 6px 6px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
-/* .task-list {
-}
-.task-groups {
-}
- */
-.task {
+
+.task,
+.task-description,
+.group {
 	background-color: black;
-	color: blanchedalmond;
+	color: rgb(207, 211, 221);
+	font: 50 1.2em "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	width: 100%;
+	margin: 0 0 4px;
+	padding: 2px 12px 6px;
+	border: none;
+}
+
+.task-description {
+	background-color: rgb(44, 44, 44);
 }
