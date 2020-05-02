@@ -1,12 +1,12 @@
 import React from "react";
 import Group from "./Group.js";
 
-function TaskGroups() {
+function GroupList() {
 	return (
-		<div className='task-groups'>
+		<div className='group-list'>
 			<Group />
 		</div>
 	);
 }
 
-export default TaskGroups;
+export default GroupList;

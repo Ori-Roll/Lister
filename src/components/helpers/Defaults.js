@@ -1,0 +1,9 @@
+const defaultItemsList = [
+	{ key: 1, description: "This is task", class: 1 },
+	{ key: 2, description: "This is tasker", class: 2 },
+	{ key: 3, description: "This is taskererst", class: 3 },
+];
+
+const defaultItem = { name: "no name", description: "no description" };
+
+export { defaultItemsList, defaultItem };

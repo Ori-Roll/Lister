@@ -17,8 +17,8 @@ body {
 	height: 100vh;
 }
 
-.task-groups,
-.task-list {
+.group-list,
+.item-list {
 	background-color: rgb(54, 55, 58);
 	padding: 6px 6px;
 	display: flex;
@@ -26,8 +26,8 @@ body {
 	justify-content: flex-start;
 }
 
-.task,
-.task-description,
+.item,
+.item-description,
 .group {
 	background-color: black;
 	color: rgb(207, 211, 221);
