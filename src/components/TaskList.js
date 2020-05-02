@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Task from "./Task.js";
-
-function getData(data) {
-	axios.get(data).then((res) => console.log(res.data));
-}
-
-getData("https://api.jsonbin.io/b/5eabe07e66e603359fe1bb8a/2");
-
-function setData() {}
 
 function TaskList() {
 	const [displayTasks, setDisplayTasks] = useState([{ name: "bla" }, { name: "blu" }]);
