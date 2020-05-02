@@ -1,10 +1,10 @@
-### Lister
+# Lister
 
-# A pet project practicing redux axios and more
+### A pet project practicing redux axios and more
 
 ## This will be a simple tech design / spec for Lister:
 
-## App will have a simple structure, main components will be:
+### App will have a simple structure, main components will be:
 
 1.  A main component that will handle all API requests.
     `Main` will save returning data to the store and update the apps loading state for the inner components.
@@ -14,7 +14,7 @@
 3.  `Group` component will update the stores \"selectedGroup"\ what group of items is selected.
 4.  The Store will have all the data that has been requested so far.
 
-## This project will contain the following practices:
+### This project will contain the following practices:
 
 1.  Using the Redux store for cross component access to have all already downloaded data (caching).
 2.  Using axios to get and set data on a remote API.
