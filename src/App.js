@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
-import TaskList from "./components/TaskList.js";
-import TaskGroups from "./components/TaskGroups.js";
+import Main from "./components/Main";
 
 /* const stuffFromAPI = { name: "Johnny cash", name: "Luke kage", name: "Sly Stallone" };
 
@@ -28,10 +27,7 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'></header>
-			<div className='interface'>
-				<TaskList />
-				<TaskGroups />
-			</div>
+			<Main />
 		</div>
 	);
 }
