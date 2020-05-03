@@ -6,4 +6,13 @@ const defaultItemsList = [
 
 const defaultItem = { name: "no name", description: "no description" };
 
-export { defaultItemsList, defaultItem };
+const defaultGroups = {
+	people: null,
+	planets: null,
+	films: null,
+	species: null,
+	vehicles: null,
+	starship: null,
+};
+
+export { defaultItemsList, defaultItem, defaultGroups };

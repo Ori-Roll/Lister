@@ -26,7 +26,7 @@ function findFirstNameInObj(name, obj) {
 function App() {
 	return (
 		<div className='App'>
-			<header className='App-header'></header>
+			<header className='App-header'>Lister - Test</header>
 			<Main />
 		</div>
 	);

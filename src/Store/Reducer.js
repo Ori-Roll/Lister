@@ -1,21 +1,22 @@
-const redux = require("redux");
 import cloneDeep from "lodash/cloneDeep";
+import { defaultItemsList, defaultGroups } from "../components/helpers/Defaults";
 
-function defaultTask(){
-    return{key: new Date().toString(), description: ""}
+const redux = require("redux");
+
+function defaultTask() {
+	return { key: new Date().toString(), description: "" };
 }
 
-function addTask(group = "default", task = {defaultTask()}) {
+function addTask(group = "default", task = defaultTask()) {
 	return { type: "ADD_TASK", group: group, task: task };
 }
 
 function Reducer(allTasks = {}, action) {
-    
-    const oldTasks = cloneDeep(allTasks);
+	const oldTasks = cloneDeep(allTasks);
 
-    switch (action.type) {
+	switch (action.type) {
 		case "ADD_TASK":
-			return { oldTasks,  };
+			return { oldTasks };
 
 		default:
 			return { allTasks };
@@ -25,3 +26,5 @@ function Reducer(allTasks = {}, action) {
 const store = redux.createStore(Reducer);
 
 store.dispatch(addTask());
+
+export default store;

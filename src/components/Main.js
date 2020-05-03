@@ -19,7 +19,12 @@ function Main() {
 
 	return (
 		<div className='interface'>
-			<ItemList dispalyItems={[{ name: "one" }, { name: "two" }]} />
+			<ItemList
+				dispalyItems={[
+					{ name: "one", description: " its one" },
+					{ name: "two", description: " its 2" },
+				]}
+			/>
 			<GroupList />
 		</div>
 	);
