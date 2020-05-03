@@ -1,7 +1,11 @@
 import React from "react";
 
-function Group(props) {
-	return <div className='group'>So Groupi</div>;
+function Group({ onGroupClick, groupName }) {
+	return (
+		<div className='group' onClick={() => onGroupClick(groupName)}>
+			{groupName}
+		</div>
+	);
 }
 
 export default Group;

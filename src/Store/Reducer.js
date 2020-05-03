@@ -1,30 +1,37 @@
 import cloneDeep from "lodash/cloneDeep";
-import { defaultItemsList, defaultGroups } from "../components/helpers/Defaults";
+import { defaultGroups, defaultGroup } from "../components/helpers/Defaults";
 
 const redux = require("redux");
 
-function defaultTask() {
-	return { key: new Date().toString(), description: "" };
-}
-
-function addTask(group = "default", task = defaultTask()) {
+/* function addTask(group = "default", task = defaultGroup()) {
 	return { type: "ADD_TASK", group: group, task: task };
+} */
+
+function changeToGroup(group = defaultGroup()) {
+	return { type: "CHANGE_GROUP_TO", group: group };
 }
 
-function Reducer(allTasks = {}, action) {
-	const oldTasks = cloneDeep(allTasks);
+const initialState = {
+	currentGroup: null,
+	data: defaultGroups(),
+};
+
+function Reducer(oldData = initialState, action) {
+	const newData = cloneDeep(oldData);
 
 	switch (action.type) {
-		case "ADD_TASK":
-			return { oldTasks };
-
+		case "CHANGE_GROUP_TO":
+			newData.currentGroup = action.group;
+			console.log("newData", newData);
+			return newData;
 		default:
-			return { allTasks };
+			return oldData;
 	}
 }
 
 const store = redux.createStore(Reducer);
 
-store.dispatch(addTask());
+store.dispatch(changeToGroup("planets"));
 
+export { changeToGroup };
 export default store;

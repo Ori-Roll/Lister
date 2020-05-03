@@ -27,7 +27,6 @@ body {
 }
 
 .item,
-.item-description,
 .group {
 	background-color: black;
 	color: rgb(207, 211, 221);
@@ -36,6 +35,7 @@ body {
 	margin: 0 0 4px;
 	padding: 2px 12px 6px;
 	border: none;
+	cursor: pointer;
 }
 
 .task-description {
