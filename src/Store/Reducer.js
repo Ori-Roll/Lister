@@ -11,6 +11,10 @@ function changeToGroup(group = defaultGroup()) {
 	return { type: "CHANGE_GROUP_TO", group: group };
 }
 
+function loadGroupFromAPI(group, groupName = defaultGroup()) {
+	return { type: "LOAD_GROUP_FROM_API", group: group, groupName: groupName };
+}
+
 const initialState = {
 	currentGroup: null,
 	data: defaultGroups(),
@@ -24,6 +28,9 @@ function Reducer(oldData = initialState, action) {
 			newData.currentGroup = action.group;
 			console.log("newData", newData);
 			return newData;
+		case "LOAD_GROUP_FROM_API":
+			newData.data[action.groupName] = action.group;
+			return newData;
 		default:
 			return oldData;
 	}
@@ -33,5 +40,5 @@ const store = redux.createStore(Reducer);
 
 store.dispatch(changeToGroup("planets"));
 
-export { changeToGroup };
+export { changeToGroup, loadGroupFromAPI };
 export default store;
