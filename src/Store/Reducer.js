@@ -12,12 +12,17 @@ function changeToGroup(group = defaultGroup()) {
 }
 
 function loadGroupFromAPI(group, groupName = defaultGroup()) {
-	return { type: "LOAD_GROUP_FROM_API", group: group, groupName: groupName };
+	return { type: "ADD_GROUP_FROM_API", group: group, groupName: groupName };
+}
+
+function changeLoading(loadingState) {
+	return { type: "CHANGE_LOADING", payload: loadingState };
 }
 
 const initialState = {
 	currentGroup: null,
 	data: defaultGroups(),
+	loading: false,
 };
 
 function Reducer(oldData = initialState, action) {
@@ -28,8 +33,14 @@ function Reducer(oldData = initialState, action) {
 			newData.currentGroup = action.group;
 			console.log("newData", newData);
 			return newData;
-		case "LOAD_GROUP_FROM_API":
+		case "ADD_GROUP_FROM_API":
 			newData.data[action.groupName] = action.group;
+			console.log(action.groupName);
+			console.log("1newData.data", newData.data);
+			setTimeout(console.log("2newData.data", newData.data), 0);
+			return newData;
+		case "CHANGE_LOADING":
+			newData.loading = action.payload;
 			return newData;
 		default:
 			return oldData;
@@ -37,8 +48,7 @@ function Reducer(oldData = initialState, action) {
 }
 
 const store = redux.createStore(Reducer);
+store.dispatch(changeToGroup("people"));
 
-store.dispatch(changeToGroup("planets"));
-
-export { changeToGroup, loadGroupFromAPI };
+export { changeToGroup, loadGroupFromAPI, changeLoading };
 export default store;

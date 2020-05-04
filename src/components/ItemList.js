@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import Item from "./Item.js";
 import { defaultItemsList } from "./helpers/Defaults.js";
 import { checkedItemValue, checkedItemKey } from "./helpers";
@@ -7,27 +7,25 @@ import { useSelector } from "react-redux";
 function ItemList({ dispalyItems = defaultItemsList }) {
 	const currentGroupName = useSelector((state) => state.currentGroup);
 	const data = useSelector((state) => state.data);
-	console.log("ItemList render");
-
+	const loading = useSelector((state) => state.loading);
 	dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems;
-	console.log(dispalyItems);
+	console.log("---------------------------------");
+	console.log("loading? : " + loading);
+	console.log("currentGroupName : " + currentGroupName);
+	console.log("data : ", data);
+	function displayMode() {
+		if (loading === true) {
+			return <div className='items-loading-screen'>LOADING!</div>;
+		} else if (data[currentGroupName] !== null) {
+			return data[currentGroupName].map((item) => (
+				<Item key={checkedItemKey(item)} item={checkedItemValue(item)} />
+			));
+		} else {
+			return <div>Please select group</div>;
+		}
+	}
 
-	return (
-		<ul className='item-list'>
-			
-			{loading ? (
-				<div className='items-loading-screen'>LOADING!</div>
-			) : (
-				dispalyItems.map((item) => {
-					return <Item key={checkedItemKey(item)} item={checkedItemValue(item)} />
-				)
-			)}
-			
-			{dispalyItems.map((item) => {
-				return <Item key={checkedItemKey(item)} item={checkedItemValue(item)} />;
-			})}
-		</ul>
-	);
+	return <ul className='item-list'>{displayMode()}</ul>;
 }
 
 export default ItemList;
