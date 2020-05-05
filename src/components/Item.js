@@ -1,11 +1,31 @@
 import React from "react";
+import { checkedItemKey } from "./helpers";
+import { isNotStringOrIsHTTP } from "./helpers";
 
 function Item({ item }) {
-	const { name, description } = item;
+	const listKeys = Object.keys(item);
+
+	listKeys.forEach((element) => {});
+
+	function itemContent(key) {
+		const entryKey = `${key.substring(0, 1).toUpperCase()}${key.substring(1)}`.replace("_", " ");
+		const entryValue = `${item[key].substring(0, 1).toUpperCase()}${item[key].substring(
+			1
+		)}`.replace("_", " ");
+		return isNotStringOrIsHTTP(item[key]) ? null : `${entryKey}:  ${entryValue}`;
+	}
+
 	return (
 		<li className='item'>
-			<span className='item-description'>{name}</span>
-			<span className='item-description'>{description}</span>
+			{listKeys.map((key) => {
+				if (!isNotStringOrIsHTTP(item[key])) {
+					return (
+						<span key={checkedItemKey(key)} className={`${key}`}>
+							{itemContent(key)}
+						</span>
+					);
+				}
+			})}
 		</li>
 	);
 }

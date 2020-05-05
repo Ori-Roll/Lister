@@ -8,20 +8,22 @@ function ItemList({ dispalyItems = defaultItemsList }) {
 	const currentGroupName = useSelector((state) => state.currentGroup);
 	const data = useSelector((state) => state.data);
 	const loading = useSelector((state) => state.loading);
+
 	dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems;
-	console.log("---------------------------------");
+	/* console.log("---------------------------------");
 	console.log("loading? : " + loading);
 	console.log("currentGroupName : " + currentGroupName);
-	console.log("data : ", data);
+	console.log("data : ", data); */
+
 	function displayMode() {
-		if (loading === true) {
-			return <div className='items-loading-screen'>LOADING!</div>;
+		if (currentGroupName === null) {
+			return <div className='items-loading-screen'>Please select group</div>;
 		} else if (data[currentGroupName] !== null) {
 			return data[currentGroupName].map((item) => (
 				<Item key={checkedItemKey(item)} item={checkedItemValue(item)} />
 			));
-		} else {
-			return <div>Please select group</div>;
+		} else if (loading === true) {
+			return <div className='items-loading-screen'>LOADING</div>;
 		}
 	}
 
