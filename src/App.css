@@ -19,11 +19,24 @@ body {
 
 .interface {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
+	grid-template-columns: 1fr 3fr;
 	gap: 0.2em;
-	width: 100%;
+	width: 80%;
 	padding: 0.5em 0;
 	height: 100vh;
+}
+
+@media (max-width: 1300px) {
+	.interface {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.interface {
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr 5fr;
+	}
 }
 
 .group-list,
@@ -49,14 +62,13 @@ body {
 	margin: 0 0 4px;
 	padding: 2px 12px 12px 15px;
 	border: none;
-	cursor: pointer;
 }
 
 .item * {
 	display: block;
 	overflow: clip;
 	text-overflow: clip;
-	max-width: 60%;
+	max-width: 80%;
 	padding: 4px 0 6px;
 	font-family: "Press Start 2P", cursive;
 	font-size: 12px;
@@ -72,7 +84,9 @@ body {
 	font-size: 12px;
 	font-weight: 50;
 	margin: 0 0 5px;
-	box-shadow: inset 0px 0px 0px 1px rgb(16, 199, 255), 0px 0px 0px 6px rgba(0, 0, 0, 1);
+	color: rgb(202, 156, 255);
+	box-shadow: inset 0px 0px 0px 1px rgb(16, 199, 255), 0px 0px 0px 5px rgba(0, 0, 0, 1);
+	cursor: pointer;
 }
 
 .items-loading-screen {

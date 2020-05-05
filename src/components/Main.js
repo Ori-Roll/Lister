@@ -16,8 +16,8 @@ function Main() {
 
 	return (
 		<div className='interface'>
-			<ItemList />
 			<GroupList />
+			<ItemList />
 		</div>
 	);
 }
