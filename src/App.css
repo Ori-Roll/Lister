@@ -24,6 +24,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	/* max-width: 60%; */
+}
+
+.group-list {
+	position: sticky;
+	top: 0px;
 }
 
 .item,
@@ -38,6 +44,24 @@ body {
 	cursor: pointer;
 }
 
-.task-description {
-	background-color: rgb(44, 44, 44);
+.item * {
+	display: block;
+	overflow: clip;
+	text-overflow: clip;
+	max-width: 60%;
+	padding: 8px 0 0;
+}
+
+.items-loading-screen {
+	width: 100%;
+	color: white;
+	text-align: center;
+	margin: 10vh 0;
+}
+
+.name,
+.title {
+	color: rgb(27, 152, 255);
+	font-weight: 500;
+	font-size: 24px;
 }
