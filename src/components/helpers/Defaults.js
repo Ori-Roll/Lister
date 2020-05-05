@@ -4,7 +4,7 @@ const defaultItemsList = [
 	{ key: 3, description: "This is taskererst", class: 3 },
 ];
 
-const defaultItem = { name: "no name", description: "no description" };
+const defaultItem = {};
 
 function defaultGroups() {
 	return {
