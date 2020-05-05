@@ -30,7 +30,8 @@ function GroupList() {
 
 		axios
 			.get(`${currentAPItmp}${groupName}`)
-			.then((res) => setReturnedDataFronAPI(groupName, res.data.results));
+			.then((res) => setReturnedDataFronAPI(groupName, res.data.results))
+			.catch((err) => console.log("err loading from API", err));
 	}
 
 	function onGroupClick(groupName) {
