@@ -26,10 +26,10 @@ function GroupList() {
 		}
 
 		changeLoadingOnStore(true);
-		const currentAPItmp = "https://swapi.py4e.com/api/"; // TMP - THIS NEEDS TO COME FROM HELPERS
+		const currentAPI = "https://swapi.py4e.com/api/"; // TMP - THIS NEEDS TO COME FROM HELPERS
 
 		axios
-			.get(`${currentAPItmp}${groupName}`)
+			.get(`${currentAPI}${groupName}`)
 			.then((res) => setReturnedDataFronAPI(groupName, res.data.results))
 			.catch((err) => console.log("err loading from API", err));
 	}

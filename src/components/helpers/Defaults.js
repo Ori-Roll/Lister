@@ -13,7 +13,7 @@ function defaultGroups() {
 		films: null,
 		species: null,
 		vehicles: null,
-		starship: null,
+		starships: null,
 	};
 }
 
