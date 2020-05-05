@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React /*,  { useState, useEffect } */ from "react";
 import ItemList from "./ItemList.js";
 import GroupList from "./GroupList.js";
 
 function Main() {
-	const [currentItems, setCurrentItems] = useState();
+	/* const [currentItems, setCurrentItems] = useState(); */
 
 	/* function getAndSetData(data) {
 		axios.get(data).then((res) => setCurrentItems(res.data.results));

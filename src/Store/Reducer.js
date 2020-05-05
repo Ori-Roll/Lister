@@ -31,13 +31,13 @@ function Reducer(oldData = initialState, action) {
 	switch (action.type) {
 		case "CHANGE_GROUP_TO":
 			newData.currentGroup = action.group;
-			console.log("newData", newData);
+			/* console.log("newData", newData); */
 			return newData;
 		case "ADD_GROUP_FROM_API":
 			newData.data[action.groupName] = action.group;
-			console.log(action.groupName);
-			console.log("1newData.data", newData.data);
-			setTimeout(console.log("2newData.data", newData.data), 0);
+			/* console.log(action.groupName);
+			console.log("1newData.data", newData.data); */
+			/* setTimeout(console.log("2newData.data", newData.data), 0); */
 			return newData;
 		case "CHANGE_LOADING":
 			newData.loading = action.payload;

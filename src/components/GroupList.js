@@ -8,8 +8,8 @@ function GroupList() {
 	console.log("--------------------GL---------------------");
 
 	const groups = useSelector((state) => state.data);
-	const currentGroup = useSelector((state) => state.currentGroup);
-	const loading = useSelector((state) => state.loading);
+	/* const currentGroup = useSelector((state) => state.currentGroup);
+	const loading = useSelector((state) => state.loading); */
 
 	const dispatch = useDispatch();
 	const changeToGroupOnStore = (groupName) => dispatch(changeToGroup(groupName));
@@ -34,9 +34,7 @@ function GroupList() {
 	}
 
 	function onGroupClick(groupName) {
-		if (currentGroup !== groupName) {
-			groups[groupName] ? changeToGroupOnStore(groupName) : askAPIForGroup(groupName);
-		}
+		groups[groupName] ? changeToGroupOnStore(groupName) : askAPIForGroup(groupName);
 	}
 
 	return (

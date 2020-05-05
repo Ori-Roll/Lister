@@ -9,9 +9,15 @@ function checkedItemValue(item) {
 }
 
 function checkedItemKey(item) {
-	let key = item.key ? item.key : Math.random();
-	console.log("new key: " + key);
+	let key = item.name ? `${item.name}${Math.random() * 100}` : Math.random();
 	return key;
 }
 
-export { checkedItemValue, checkedItemKey };
+function isNotStringOrIsHTTP(stringItem) {
+	if (typeof stringItem !== "string") {
+		return true;
+	}
+	return stringItem.slice(0, 4) === "http" ? true : false;
+}
+
+export { checkedItemValue, checkedItemKey, isNotStringOrIsHTTP };
