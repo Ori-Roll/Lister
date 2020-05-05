@@ -4,12 +4,12 @@ import { defaultItemsList } from "./helpers/Defaults.js";
 import { checkedItemValue, checkedItemKey } from "./helpers";
 import { useSelector } from "react-redux";
 
-function ItemList({ dispalyItems = defaultItemsList }) {
+function ItemList() {
 	const currentGroupName = useSelector((state) => state.currentGroup);
 	const data = useSelector((state) => state.data);
 	const loading = useSelector((state) => state.loading);
 
-	dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems;
+	/* dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems; */
 	/* console.log("---------------------------------");
 	console.log("loading? : " + loading);
 	console.log("currentGroupName : " + currentGroupName);
