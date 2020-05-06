@@ -17,7 +17,7 @@ function ItemList() {
 
 	function displayMode() {
 		if (currentGroupName === null) {
-			return <div className='items-loading-screen'>Please select group</div>;
+			return <div className='items-loading-screen'>Please select category</div>;
 		} else if (data[currentGroupName] !== null) {
 			return data[currentGroupName].map((item) => (
 				<Item key={checkedItemKey(item)} item={checkedItemValue(item)} />

@@ -84,7 +84,7 @@ body {
 	padding: 1em;
 	border: 1px rgb(81, 168, 250) solid;
 	font-family: "Press Start 2P", cursive;
-	font-size: x-large;
+	font-size: large;
 	color: white;
 	text-align: center;
 }
@@ -97,6 +97,12 @@ body {
 	border-bottom: 6px rgb(0, 25, 165) dotted;
 	padding: 15px 0 10px;
 	margin: 0 0 12px;
+}
+
+.created,
+.edited {
+	font-size: xx-small;
+	color: gray;
 }
 
 @media (max-width: 1200px) {
