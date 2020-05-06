@@ -22,12 +22,17 @@ function ItemList() {
 			return data[currentGroupName].map((item) => (
 				<Item key={checkedItemKey(item)} item={checkedItemValue(item)} />
 			));
-		} else if (loading === true) {
-			return <div className='items-loading-screen'>LOADING</div>;
+		} else {
+			return <div className='items-loading-screen'>Please select item</div>;
 		}
 	}
 
-	return <ul className='item-list'>{displayMode()}</ul>;
+	return (
+		<div>
+			{loading === true ? <div className='items-loading-screen'>loading...</div> : null}
+			<ul className='item-list'>{displayMode()}</ul>;
+		</div>
+	);
 }
 
 export default ItemList;

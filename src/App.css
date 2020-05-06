@@ -26,19 +26,6 @@ body {
 	height: 100vh;
 }
 
-@media (max-width: 1200px) {
-	.interface {
-		width: 100%;
-	}
-}
-
-@media (max-width: 700px) {
-	.interface {
-		grid-template-columns: 1fr;
-		grid-template-rows: 2fr 5fr;
-	}
-}
-
 .group-list,
 .item-list {
 	background-color: rgb(54, 55, 58);
@@ -90,10 +77,16 @@ body {
 }
 
 .items-loading-screen {
-	width: 100%;
+	position: absolute;
+	top: 30vh;
+	left: 40%;
+	background-color: black;
+	padding: 1em;
+	border: 1px rgb(81, 168, 250) solid;
+	font-family: "Press Start 2P", cursive;
+	font-size: x-large;
 	color: white;
 	text-align: center;
-	margin: 10vh 0;
 }
 
 .name,
@@ -104,4 +97,24 @@ body {
 	border-bottom: 6px rgb(0, 25, 165) dotted;
 	padding: 15px 0 10px;
 	margin: 0 0 12px;
+}
+
+@media (max-width: 1200px) {
+	.interface {
+		width: 100%;
+	}
+}
+
+@media (max-width: 700px) {
+	.interface {
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr 5fr;
+	}
+	.items-loading-screen {
+		position: relative;
+		left: 10%;
+		width: 80%;
+		top: 10%;
+		font-size: medium;
+	}
 }
