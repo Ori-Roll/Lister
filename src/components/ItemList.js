@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import Item from "./Item.js";
 import { defaultItemsList } from "./helpers/Defaults.js";
 import { checkedItemValue, checkedItemKey } from "./helpers";
@@ -8,13 +8,11 @@ function ItemList() {
 	const currentGroupName = useSelector((state) => state.currentGroup);
 	const data = useSelector((state) => state.data);
 	const loading = useSelector((state) => state.loading);
+	const nextPageForGroup = useSelector((state) => state.nextPageForGroup[currentGroupName]);
 
-	/* dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems; */
-	/* console.log("---------------------------------");
-	console.log("loading? : " + loading);
-	console.log("currentGroupName : " + currentGroupName);
-	console.log("data : ", data); */
-
+	/* useEffect(() => {
+		hasMoreData = data ? data.nextPageForGroup[currentGroupName] : null;
+	}, []); */
 	function displayMode() {
 		if (currentGroupName === null) {
 			return <div className='items-loading-screen'>Please select category</div>;
@@ -27,10 +25,17 @@ function ItemList() {
 		}
 	}
 
+	function onLoadMoreClick(moreDataLink) {}
+
 	return (
 		<div>
-			{loading === true ? <div className='items-loading-screen'>loading...</div> : null}
-			<ul className='item-list'>{displayMode()}</ul>;
+			{loading ? <div className='items-loading-screen'>loading...</div> : null}
+			<ul className='item-list'>{displayMode()}</ul>
+			{nextPageForGroup ? (
+				<button onClick={() => onLoadMoreClick(nextPageForGroup)} className='load-more item'>
+					LOAD MORE
+				</button>
+			) : null}
 		</div>
 	);
 }
@@ -48,3 +53,9 @@ fetch("https://swapi.py4e.com/api/people/1")
 		console.log("bug!", err);
 	});
  */
+
+/* dispalyItems = data[currentGroupName] === null ? defaultItemsList : dispalyItems; */
+/* console.log("---------------------------------");
+	console.log("loading? : " + loading);
+	console.log("currentGroupName : " + currentGroupName);
+	console.log("data : ", data); */

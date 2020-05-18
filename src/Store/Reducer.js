@@ -1,5 +1,9 @@
 import cloneDeep from "lodash/cloneDeep";
-import { defaultGroups, defaultGroup } from "../components/helpers/Defaults";
+import {
+	defaultGroups,
+	defaultGroup,
+	defaultNextPagesForGroups,
+} from "../components/helpers/Defaults";
 
 const redux = require("redux");
 
@@ -19,9 +23,14 @@ function changeLoading(loadingState) {
 	return { type: "CHANGE_LOADING", payload: loadingState };
 }
 
+function setNextAPIPageForGroup(nextPage, groupName) {
+	return { type: "SET_NEXT_PAGE_FOR_GROUP", nextPage: nextPage, groupName: groupName };
+}
+
 const initialState = {
 	currentGroup: null,
 	data: defaultGroups(),
+	nextPageForGroup: defaultNextPagesForGroups(),
 	loading: false,
 };
 
@@ -42,6 +51,9 @@ function Reducer(oldData = initialState, action) {
 		case "CHANGE_LOADING":
 			newData.loading = action.payload;
 			return newData;
+		case "SET_NEXT_PAGE_FOR_GROUP":
+			newData.nextPageForGroup[action.groupName] = action.nextPage;
+			return newData;
 		default:
 			return oldData;
 	}
@@ -50,5 +62,5 @@ function Reducer(oldData = initialState, action) {
 const store = redux.createStore(Reducer);
 store.dispatch(changeToGroup("people"));
 
-export { changeToGroup, loadGroupFromAPI, changeLoading };
+export { changeToGroup, loadGroupFromAPI, changeLoading, setNextAPIPageForGroup };
 export default store;

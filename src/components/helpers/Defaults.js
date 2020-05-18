@@ -17,8 +17,19 @@ function defaultGroups() {
 	};
 }
 
+function defaultNextPagesForGroups() {
+	return {
+		people: null,
+		planets: null,
+		films: null,
+		species: null,
+		vehicles: null,
+		starships: null,
+	};
+}
+
 function defaultGroup() {
 	return null;
 }
 
-export { defaultItemsList, defaultItem, defaultGroups, defaultGroup };
+export { defaultItemsList, defaultItem, defaultGroups, defaultGroup, defaultNextPagesForGroups };

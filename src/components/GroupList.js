@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import Group from "./Group.js";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { changeToGroup, loadGroupFromAPI, changeLoading } from "../store/Reducer.js";
+import {
+	changeToGroup,
+	loadGroupFromAPI,
+	changeLoading,
+	setNextAPIPageForGroup,
+} from "../store/Reducer.js";
 
 function GroupList() {
 	console.log("--------------------GL---------------------");
@@ -16,13 +21,16 @@ function GroupList() {
 	const loadGroupToStore = (groupData, groupName) =>
 		dispatch(loadGroupFromAPI(groupData, groupName));
 	const changeLoadingOnStore = (loadingState) => dispatch(changeLoading(loadingState));
+	const setNextGroupPageOnStore = (nextPage, groupName) =>
+		dispatch(setNextAPIPageForGroup(nextPage, groupName));
 
 	function askAPIForGroup(groupName) {
-		function setReturnedDataFronAPI(groupName, groupData) {
+		function setReturnedDataFronAPI(groupName, returnedData) {
+			let groupData = returnedData.results;
+			setNextGroupPageOnStore(returnedData.next, groupName);
 			loadGroupToStore(groupData, groupName);
 			changeToGroupOnStore(groupName);
 			changeLoadingOnStore(false);
-			console.log("new data from API is : ", groupData);
 		}
 
 		changeLoadingOnStore(true);
@@ -30,7 +38,7 @@ function GroupList() {
 
 		axios
 			.get(`${currentAPI}${groupName}`)
-			.then((res) => setReturnedDataFronAPI(groupName, res.data.results))
+			.then((res) => setReturnedDataFronAPI(groupName, res.data))
 			.catch((err) => console.log("err loading from API", err));
 	}
 

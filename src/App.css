@@ -105,6 +105,20 @@ body {
 	color: gray;
 }
 
+.load-more {
+	display: block;
+	overflow: clip;
+	text-overflow: clip;
+	padding: 15px 12px 15px;
+	font-family: "Press Start 2P", cursive;
+	font-size: 20px;
+	font-weight: 50;
+	margin: 15px 0 30px;
+	color: rgb(202, 156, 255);
+	box-shadow: inset 0px 0px 0px 1px rgb(16, 199, 255), 0px 0px 0px 5px rgba(0, 0, 0, 1);
+	cursor: pointer;
+}
+
 @media (max-width: 1200px) {
 	.interface {
 		width: 100%;
