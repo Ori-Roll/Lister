@@ -34,7 +34,7 @@ function GroupList() {
 
 		axios
 			.get(`${currentAPI}${groupName}`)
-			.then((res) => setTimeout(() => processDataFromAPI(groupName, res.data), 2000))
+			.then((res) => processDataFromAPI(groupName, res.data))
 			.catch((err) => console.log("err loading from API", err));
 	}
 
