@@ -24,6 +24,8 @@ function Item({ item }) {
 							{itemContent(key)}
 						</span>
 					);
+				} else {
+					return <span key={checkedItemKey("noItem")}>NO ITEM HERE</span>;
 				}
 			})}
 		</li>

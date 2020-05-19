@@ -15,7 +15,13 @@ function ItemList() {
 		dispatch(loadNextPageToGroup(nextPageData, groupName));
 	const setNextGroupPageOnStore = (nextPage, groupName) =>
 		dispatch(setNextAPIPageForGroup(nextPage, groupName));
+
 	const [moreIsLoading, setMoreIsLoading] = useState(false);
+	const [blink, setBlink] = useState(true);
+
+	useEffect(() => {
+		setTimeout(() => setBlink((blink) => !blink), 800);
+	}, [blink]);
 
 	function displayMode() {
 		if (data[currentGroupName] !== null) {
@@ -25,7 +31,11 @@ function ItemList() {
 		} else if (loading) {
 			return null;
 		} else {
-			return <div className='items-loading-screen'>Please select category</div>;
+			return (
+				<div className='items-loading-screen' style={{ visibility: blink ? "visible" : "hidden" }}>
+					Please select category
+				</div>
+			);
 		}
 	}
 
