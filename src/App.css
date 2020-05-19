@@ -76,6 +76,10 @@ body {
 	cursor: pointer;
 }
 
+.group:hover {
+	color: rgb(16, 199, 255);
+}
+
 .items-loading-screen {
 	position: absolute;
 	top: 30vh;
@@ -85,7 +89,7 @@ body {
 	border: 1px rgb(81, 168, 250) solid;
 	font-family: "Press Start 2P", cursive;
 	font-size: large;
-	color: white;
+	color: rgb(16, 199, 255);
 	text-align: center;
 }
 
@@ -106,17 +110,19 @@ body {
 }
 
 .load-more {
-	display: block;
-	overflow: clip;
-	text-overflow: clip;
-	padding: 15px 12px 15px;
+	text-align: left;
+	padding: 20px 12px 20px 35px;
 	font-family: "Press Start 2P", cursive;
 	font-size: 20px;
 	font-weight: 50;
-	margin: 15px 0 30px;
+	margin: 15px 10px 20px;
 	color: rgb(202, 156, 255);
 	box-shadow: inset 0px 0px 0px 1px rgb(16, 199, 255), 0px 0px 0px 5px rgba(0, 0, 0, 1);
 	cursor: pointer;
+}
+
+.load-more:hover {
+	color: rgb(16, 199, 255);
 }
 
 @media (max-width: 1200px) {

@@ -23,8 +23,12 @@ function changeLoading(loadingState) {
 	return { type: "CHANGE_LOADING", payload: loadingState };
 }
 
-function setNextAPIPageForGroup(nextPage, groupName) {
-	return { type: "SET_NEXT_PAGE_FOR_GROUP", nextPage: nextPage, groupName: groupName };
+function setNextAPIPageForGroup(nextPageLink, groupName) {
+	return { type: "SET_NEXT_PAGE_FOR_GROUP", nextPageLink: nextPageLink, groupName: groupName };
+}
+
+function loadNextPageToGroup(nextPageData, groupName) {
+	return { type: "LOAD_MORE_TO_GROUP", nextPageData: nextPageData, groupName: groupName };
 }
 
 const initialState = {
@@ -48,11 +52,14 @@ function Reducer(oldData = initialState, action) {
 			console.log("1newData.data", newData.data); */
 			/* setTimeout(console.log("2newData.data", newData.data), 0); */
 			return newData;
+		case "SET_NEXT_PAGE_FOR_GROUP":
+			newData.nextPageForGroup[action.groupName] = action.nextPageLink;
+			return newData;
+		case "LOAD_MORE_TO_GROUP":
+			newData.data[action.groupName].push(...action.nextPageData);
+			return newData;
 		case "CHANGE_LOADING":
 			newData.loading = action.payload;
-			return newData;
-		case "SET_NEXT_PAGE_FOR_GROUP":
-			newData.nextPageForGroup[action.groupName] = action.nextPage;
 			return newData;
 		default:
 			return oldData;
@@ -62,5 +69,11 @@ function Reducer(oldData = initialState, action) {
 const store = redux.createStore(Reducer);
 store.dispatch(changeToGroup("people"));
 
-export { changeToGroup, loadGroupFromAPI, changeLoading, setNextAPIPageForGroup };
+export {
+	changeToGroup,
+	loadGroupFromAPI,
+	changeLoading,
+	setNextAPIPageForGroup,
+	loadNextPageToGroup,
+};
 export default store;
