@@ -25,7 +25,7 @@ function Item({ item }) {
 						</span>
 					);
 				} else {
-					return <span key={checkedItemKey("noItem")}>NO ITEM HERE</span>;
+					return null;
 				}
 			})}
 		</li>
